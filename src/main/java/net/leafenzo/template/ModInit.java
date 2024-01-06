@@ -2,8 +2,11 @@ package net.leafenzo.template;
 
 import net.fabricmc.api.ModInitializer;
 import net.leafenzo.template.block.ModBlocks;
+import net.leafenzo.template.item.ModItemGroups;
 import net.leafenzo.template.item.ModItems;
+import net.leafenzo.template.particle.ModParticleTypes;
 import net.leafenzo.template.registries.ModFabricRegistries;
+import net.leafenzo.template.util.ModWorldGen;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,10 +20,20 @@ public class ModInit implements ModInitializer {
         // However, some things (like resources) may still be uninitialized.
         // Proceed with mild caution.
 
-        ModItems.registerModItems();
         ModBlocks.registerModBlocks();
-        ModFabricRegistries.registerOxidizableBlocks();
+        ModItems.registerModItems();
+//        ModBlockEntityType.RegisterModBlockEntityTypes();
+        ModParticleTypes.registerModParticleTypes();
         ModFabricRegistries.registerFlammableBlocks();
+//        ModFabricRegistries.registerCompostingChances();
+//        ModFabricRegistries.registerVillagerInteractions();
+//        ModFabricRegistries.registerFuels();
+//        DispenserBehavior.RegisterDispenserBehaviors();
+//        ModRecipeSerializer.registerModRecipeSerializer();
+//        ModEffects.registerModEffects();
+//        ModPotions.registerModPotions();
+        ModWorldGen.registerWorldGen();
+        ModItemGroups.registerModItemGroups();
     }
 }
 

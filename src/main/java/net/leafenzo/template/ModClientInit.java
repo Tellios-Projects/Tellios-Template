@@ -3,6 +3,7 @@ package net.leafenzo.template;
 import net.fabricmc.api.ClientModInitializer;
 import net.leafenzo.template.client.render.ModColorHandler;
 import net.leafenzo.template.client.render.ModRenderLayers;
+import net.leafenzo.template.particle.ModParticleTypes;
 
 public class ModClientInit implements ClientModInitializer {
     @Override
@@ -10,6 +11,6 @@ public class ModClientInit implements ClientModInitializer {
         ModRenderLayers.registerBlockCutouts();
         ModColorHandler.registerBlockColorProviders();
 
-//        HudRenderCallback.EVENT.register(new DenseCobwebHudOverlay());
+        ModParticleTypes.registerFactoriesForClient();
     }
 }
