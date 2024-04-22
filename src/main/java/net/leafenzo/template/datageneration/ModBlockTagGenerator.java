@@ -3,7 +3,6 @@ package net.leafenzo.template.datageneration;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.leafenzo.template.block.ModBlocks;
-import net.leafenzo.template.registry.tag.ModBlockTags;
 import net.minecraft.block.Block;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;

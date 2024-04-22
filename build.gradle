@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.1-SNAPSHOT'
+	id 'fabric-loom' version '1.5-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -11,9 +11,57 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
-    // mavenCentral()  // <- uncomment if needed
+	mavenCentral()
 
-    // Add repositories to retrieve artifacts from in here.
+	exclusiveContent {
+		forRepository {
+			maven {
+				name = "Modrinth"
+				url = "https://api.modrinth.com/maven"
+			}
+		}
+//		forRepositories(fg.repository) // Only add this if you're using ForgeGradle, otherwise remove this line
+		filter {
+			includeGroup "maven.modrinth"
+		}
+	}
+
+	maven {
+		name = 'Ladysnake Mods'
+		url = 'https://maven.ladysnake.org/releases'
+	}
+
+	maven {
+		name = 'JitPack'
+		url = 'https://jitpack.io'
+	}
+
+	//JEI
+	maven {
+		// location of the maven that hosts JEI files before January 2023
+		name = "Progwml6's maven"
+		url = "https://dvs1.progwml6.com/files/maven/"
+	}
+	maven {
+		// location of the maven that hosts JEI files since January 2023
+		name = "Jared's maven"
+		url = "https://maven.blamejared.com/"
+	}
+	maven {
+		// location of a maven mirror for JEI files, as a fallback
+		name = "ModMaven"
+		url = "https://modmaven.dev"
+	}
+
+	// REI
+	maven { url = "https://maven.shedaniel.me/" }
+
+	// Mod Menu
+	maven { url = "https://maven.terraformersmc.com/releases/" }
+	// Create, Porting Lib, Forge Tags, Milk Lib, Registrate
+	maven { url = "https://mvn.devos.one/snapshots/" }
+
+	// Add repositories to retrieve artifacts from in here.
 	// You should only use this when depending on other mods because
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
@@ -43,6 +91,7 @@ dependencies {
 
 processResources {
 	inputs.property "version", project.version
+	filteringCharset "UTF-8"
 
 	filesMatching("fabric.mod.json") {
 		expand "version": project.version
@@ -50,7 +99,6 @@ processResources {
 }
 
 def dataOutput = 'src/main/generated'
-
 loom {
 	runs {
 		datagen {
@@ -65,6 +113,7 @@ loom {
 			runDir "build/datagen"
 		}
 	}
+	accessWidenerPath = file("src/main/resources/template.accesswidener")
 }
 
 sourceSets {
@@ -111,6 +160,3 @@ publishing {
 		// retrieving dependencies.
 	}
 }
-
-//Sources:
-//https://github.com/ApexModder/MultiPlatform-Template/blob/master/fabric/build.gradle

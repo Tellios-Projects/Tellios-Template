@@ -28,8 +28,9 @@
       "net.leafenzo.template.datageneration.ModDataGenerator"
     ]
   },
+  "accessWidener": "template.accesswidener",
   "mixins": [
-    "squashed.mixins.json"
+    "template.mixins.json"
   ],
 
   "depends": {

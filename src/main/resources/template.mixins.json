@@ -4,6 +4,7 @@
   "package": "net.leafenzo.template.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "BoatEntityMixin"
   ],
   "client": [
     "BlockStateProviderMixin",
