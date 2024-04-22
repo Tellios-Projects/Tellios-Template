@@ -30,9 +30,6 @@ public class ModTags {
         public static final TagKey<Item> WAX = getOrCreateCommonTag("wax");
         public static final TagKey<Item> COBBLESTONE = getOrCreateCommonTag("cobblestone");
 
-        public static final TagKey<Item> WINTERGREEN_CANDY_CANE_BLOCKS = getOrCreateTag("wintergreen_candy_cane_blocks");
-        public static final TagKey<Item> PEPPERMINT_CANDY_CANE_BLOCKS = getOrCreateTag("peppermint_candy_cane_blocks");
-
         public static TagKey<Item> getOrCreateTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, new Identifier(Super.MOD_ID, name));
         }
